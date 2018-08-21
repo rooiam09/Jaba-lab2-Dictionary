@@ -1,1 +1,1 @@
-# Jaba-lab2-Dictionary
+# Java-lab2-Dictionary
