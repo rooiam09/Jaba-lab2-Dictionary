@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Vector;
 public class Assign2 {
 	public static void main(String args[])
 	{
@@ -17,27 +16,27 @@ public class Assign2 {
                
              for(int i=0;i<16000;i++)
              {
-            	 dic[i]=dbr.readLine();
+            	 dic[i]=dbr.readLine();					//store them in array
              }
              for(int i=0;i<84;i++)
              {
-            	 key[i]=kbr.readLine();
+            	 key[i]=kbr.readLine();					//store them in array
              }
              
              String tempStr,temp;
              for (int t = 0; t < 16000 - 1; t++) {
-                 for (int i= 0; i < 16000 - t-1; i++) {
-                     if(dic[i+1].compareTo(dic[i])<0) {
-                         tempStr = dic[i];
+                 for (int i= 0; i < 16000 - t-1; i++) {		//bubble sort
+                     if(dic[i+1].compareTo(dic[i])<0) {		//comparing them using compareTo whic returns integer value 
+                         tempStr = dic[i];					
                          dic[i] = dic[i + 1];
                          dic[i + 1] = tempStr;
                       }
                  }   
              }
              
-             for (int t = 0; t < 84 - 1; t++) {
+             for (int t = 0; t < 84 - 1; t++) {					//bubble sort	
                  for (int i= 0; i < 84 - t-1; i++) {
-                     if(key[i+1].compareTo(key[i])<0) {
+                     if(key[i+1].compareTo(key[i])<0) {			//sorting the strings in array
                          temp = key[i];
                          key[i] = key[i + 1];
                          key[i + 1] = temp;
@@ -50,16 +49,16 @@ public class Assign2 {
             	 {
             		 for(int i=0;i<16000;i++)
             		 {
-            			 if(key[t].equals(dic[i])) {
-            			 flag=1;
+            			 if(key[t].equals(dic[i])) {			//matching words from keywords file to dictionary file & equals returns boolean 
+            			 flag=1;								//if match found flag is set
             			 }
             		 }
-            		 if(flag==0) {
+            		 if(flag==0) {							
             			 writer.write("Keyword not found: " + key[t] );	 
-            			 writer.newLine();
+            			 writer.newLine();						//if match not found flag is reset and count is increased for counting unmatched words
             			 kcount++;
             		 }
-            		 flag=0;
+            		 flag=0;									//flag is again reset to 0 for first case
             	 }
             	 writer.newLine();
             	 writer.write("No. of keywords not found: "+ kcount);
@@ -81,5 +80,3 @@ public class Assign2 {
         }
 	}
 }
-      
-        
